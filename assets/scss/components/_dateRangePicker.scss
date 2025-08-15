@@ -1,0 +1,25 @@
+.datePicker {
+  height: 2rem !important;
+  font-size: 13px;
+  z-index: 1;
+
+  .date__range {
+    min-width: 120px;
+    font-size: 12px;
+  }
+
+  .date__reset {
+    height: 2rem !important;
+  }
+}
+
+.form-control.reportrange-text {
+  height: 2rem;
+  font-size: 10px !important;
+  border-radius: 0 !important;
+}
+
+#date-reset {
+  height: 2rem;
+  z-index: 1;
+}

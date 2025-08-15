@@ -1,0 +1,275 @@
+.adminStyle {
+  border-bottom: 2px;
+}
+
+#requests-view {
+  min-width: 329px;
+}
+
+.bell {
+  position: relative;
+  left: 1vh;
+  top: 0vh;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+#sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #051937;
+  color: #fff;
+  font-size: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  // transition: all 0.3s;
+  width: 15rem;
+  width: 15rem;
+  // width: fit-content;
+  min-height: 100vh;
+  height: auto;
+  position: fixed;
+  /* z-index: 1; */
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 200ms ease;
+}
+.cityIcon {
+  display: none;
+}
+
+.caretStyle {
+  float: right;
+}
+
+#sidebar.active {
+  margin: auto;
+}
+#sidebar .sidebar-header {
+  padding: 10px;
+}
+#sidebar ul.components {
+  padding: 10px 0;
+  border-top: 1px solid #fff;
+  font-size: 15px;
+}
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+#sidebar ul li a:hover {
+  color: black;
+  background: #a8eb12;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* //*ANCHOR - Added this style to fix the active sidebar link */
+a.nuxt-link-active {
+  color: black !important;
+  background: #a8eb12;
+  border-radius: 2px !important;
+}
+
+.sideBarDrpdown {
+  &:focus {
+    color: black;
+    background: #f9eded;
+  }
+  &:active {
+    color: black !important;
+    background: #f9eded;
+  }
+  &:focus-within {
+    color: black;
+    background: #f9eded;
+  }
+  &:hover {
+    background-color: #f9eded !important;
+    color: black;
+  }
+}
+
+.adminDrpdown {
+  font-size: 12px;
+  color: inherit;
+}
+
+.smallIcon {
+  font-size: 2px;
+}
+
+.icon1 {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.footerStyle {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  font-size: 12px;
+  font-style: italic;
+  opacity: 60%;
+  bottom: 0;
+  width: 240px;
+}
+
+/* //!ANCHOR - This style is for highlighting the admin dashboard submenus */
+.adminSubMenusStyle {
+  border-left-style: solid;
+  border-left-color: #f9eded;
+  border-left-width: 2px;
+  margin: 0 15px;
+
+  &:active {
+    // background-color: none !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+  a.nuxt-link-active {
+    color: black !important;
+    background-color: none !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f1f3f4;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #3f418d;
+  background-color: #3f418d;
+  &:focus {
+    box-shadow: transparent;
+  }
+}
+// Logout Multiple
+.freeze {
+  position: fixed;
+  z-index: 1000;
+  background: #00000079;
+  width: 100%;
+  height: 100%;
+}
+.freezeHold {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.freezeContent {
+  background: white;
+  border-radius: 4px;
+  width: 500px;
+  height: fit-content;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  animation: jelly 0.5s;
+}
+.freezeHeader {
+  font-size: 20px;
+  font-weight: bold;
+  // font-family: font_M;
+  color: #e84d2e;
+}
+.freezeBody {
+  color: black;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.freezeFooter {
+  text-align: right;
+}
+.freezeFooter button {
+  background: #e84d2e;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  &:hover {
+    background: #f61600;
+  }
+}
+
+// Small screens
+@media screen and (max-width: 675px) {
+  #sidebar {
+    width: 4rem;
+    padding: 5px;
+  }
+  .adminDrpdown {
+    display: none;
+  }
+  .sidebarText {
+    display: none;
+  }
+  .adminSubMenusStyle {
+    border-left-style: solid;
+    border-left-color: #f9eded;
+    border-left-width: 2px;
+    margin: 0 3px;
+  }
+  .col-2 {
+    padding: 0px;
+  }
+  .cityIcon {
+    display: block !important;
+  }
+  .bfiImage {
+    display: none !important;
+  }
+  .plusIcon {
+    display: block !important;
+  }
+  .caretIcon {
+    display: none !important;
+  }
+  .footerStyle {
+    display: none;
+  }
+  .userGuideText {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .mainContainer {
+    width: auto;
+    display: flex;
+    padding: 3rem 0 0 3rem;
+    // margin: 1rem;
+    flex-direction: column;
+    // margin-left: 0 !important;
+  }
+  .userGuideBtn {
+    display: none !important;
+  }
+}
+
+// Large screens
+@media screen and (min-width: 675px) {
+  .cityIcon {
+    display: none !important;
+  }
+  .plusIcon {
+    display: none !important;
+  }
+}

@@ -1,0 +1,157 @@
+.login-layout {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  overflow: hidden;
+}
+
+.login-main {
+  border: none;
+  text-align: center;
+  display: block;
+  margin: 10% auto;
+  border-radius: 10px;
+  //   background-color: bisque;
+}
+
+.login-form {
+  width: 500px;
+  margin: 30px 0 10px 0;
+  display: block;
+
+  //  border: 1px red solid;
+}
+
+.system-name-text {
+  font-size: 38px;
+  color: #74321d;
+  font-weight: 700;
+  // font-family: Tahoma;
+}
+.input-col {
+  margin: 5px;
+}
+.input-col-pass {
+  padding: 0 2px 0 20px;
+}
+.input-form {
+  margin: auto;
+  // width: 100%;
+  border: #c29d8a 1px solid;
+  // border: #c4ada1 1px solid;
+  border-radius: 20px;
+  font-size: 12px;
+
+  &:focus {
+    border: #c29d8a 2px solid;
+    box-shadow: none;
+  }
+}
+.btn-login {
+  margin: auto;
+  width: 100%;
+  background-color: #74321d;
+  border: none;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: #864a38;
+  }
+
+  &:focus {
+    background-color: #8b4b38;
+
+    box-shadow: none;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.sub-text {
+  font-size: 12px;
+  color: #745045;
+  //  font-weight: 500;
+  margin: 30px 0;
+}
+.version-num-text {
+  font-size: 12px;
+  color: #745045;
+  font-style: italic;
+}
+.revive-logo {
+  background-repeat: no-repeat;
+  background-size: 130px;
+  background-position: center;
+  background-image: url("/static/city_logo.png");
+  height: 80px;
+  width: 100%;
+  margin: 0;
+}
+
+.login-alert {
+  right: 35px;
+  bottom: 10px;
+  float: right;
+  border: none;
+}
+.login-alert-icon {
+  float: left;
+  font-size: 22px;
+  margin-right: 12px;
+}
+.eye {
+  display: flex;
+  align-items: center;
+  width: 18px;
+  height: 16px;
+}
+.eye-icn {
+  position: relative;
+  right: 47px;
+  top: 8px;
+  color: #6d7571;
+  width: 18px;
+  height: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .login-main {
+    //    border: 1px solid red;
+    text-align: center;
+    display: block;
+    margin: 10% auto;
+    border-radius: 10px;
+  }
+
+  .login-layout {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .revive-logo {
+    height: 80px;
+    background-size: 100px;
+  }
+  .system-name-text {
+    font-size: 30px;
+  }
+
+  .input-form {
+    width: 80%;
+  }
+  .btn-login {
+    width: 80%;
+  }
+
+  .eye-icn {
+    right: 90px;
+  }
+}

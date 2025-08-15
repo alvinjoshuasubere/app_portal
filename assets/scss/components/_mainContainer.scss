@@ -1,0 +1,99 @@
+.color1 {
+  color: #00488e !important;
+}
+
+.icon {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.mainContainer {
+  display: block;
+  padding: 3rem 0 0 15rem;
+  transition: all 200ms ease;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: row;
+  margin: 1.5rem;
+  width: auto;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  border-color: rgba(212, 210, 210, 0.486);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.tabContent {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin: 0;
+}
+
+// .form-control {
+//   border-color: rgba(212, 210, 210, 0.486);
+// }
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.err {
+  background-color: #f12d2d;
+  color: white;
+}
+
+.fixed {
+  position: fixed !important;
+  bottom: 2% !important;
+  right: 2% !important;
+  z-index: 99999;
+}
+
+
+.alert {
+  bottom: 0%;
+  right: 1%;
+  position: fixed;
+  z-index: 9999;
+  font-size: 13px;
+}
+.alert-danger {
+  color: #fff;
+  border-left: 5px solid #d2111b;
+  background-color: #d2111b;
+}
+
+.alert-success {
+  color: #fff;
+  border-left: 5px solid #71bf55;
+  background-color: #71bf55;
+}
+
+.tooltip {
+  top: 0;
+}
+
+@media screen and (max-width: 675px) {
+  .mainContainer {
+    width: auto;
+    display: flex;
+    padding: 3rem 0 0 4rem;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .mainContent {
+    display: flex;
+    margin: 1rem;
+    width: auto;
+    flex-direction: column;
+    // margin-left: 0 !important;
+  }
+}

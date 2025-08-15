@@ -1,0 +1,361 @@
+@mixin centerIt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin decentBtn {
+  padding: 0.3rem;
+  border-style: solid;
+  border-radius: 0.2em;
+  color: white;
+}
+
+.transaction {
+  margin: 1.5rem;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  border-color: rgba(212, 210, 210, 0.486);
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: all 200ms ease;
+
+  .customTitle {
+    @include centerIt();
+    padding: 0;
+    width: 100%;
+    background-color: #00803e;
+    color: white;
+    height: 24px;
+    p {
+      font-size: 24px;
+    }
+    border-radius: 0.2em;
+  }
+
+  .transaction__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.25rem;
+    border-color: rgba(212, 210, 210, 0.486);
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    // width: 800px;
+    .transaction__details__items {
+      display: flex;
+      flex-direction: row;
+      .item {
+        padding: 2em;
+        margin: 0.25em;
+        width: 50%;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 0.25rem;
+        border-color: rgba(212, 210, 210, 0.486);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      }
+    }
+  }
+
+  .transaction__scale {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    .weight {
+      padding: 1rem;
+      margin: 1rem 1rem 1rem 0;
+      height: 75%;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.25rem;
+      border-color: rgba(212, 210, 210, 0.486);
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      display: grid;
+      grid-template-columns: 2fr 3fr 1fr 0.5fr;
+      grid-template-rows: 0.125fr 1fr 1fr 0.125fr 1fr;
+      grid-template-areas:
+        "weightTitle weightTitle weightTitle weightTitle"
+        "inboundLabel inboundWeight inboundUnit inboundLock"
+        "outboundLabel outboundWeight outboundUnit outboundLock"
+        "totaline totaline totaline totaline"
+        "netLabel netWeight netUnit netUnit";
+
+      // #region GridComponents
+      #inboundLock {
+        @include centerIt();
+        background-color: white;
+        border-style: none;
+        grid-area: inboundLock;
+        margin-bottom: 7px;
+      }
+      #outboundLock {
+        @include centerIt();
+        background-color: white;
+        border-style: none;
+        grid-area: outboundLock;
+        margin-bottom: 7px;
+      }
+      #weightTitle {
+        grid-area: weightTitle;
+      }
+      #inboundLabel {
+        margin-top: 0.6em;
+        @include centerIt();
+        p {
+          width: 100%;
+          background-color: #00803e;
+          font-size: 20px;
+          border-radius: 0.2em;
+        }
+        grid-area: inboundLabel;
+      }
+      #inboundWeight {
+        @include centerIt();
+        grid-area: inboundWeight;
+      }
+      #inboundUnit {
+        @include centerIt();
+        flex-direction: row;
+        grid-area: inboundUnit;
+      }
+      #outboundLabel {
+        margin-top: 0.6em;
+        @include centerIt();
+        p {
+          width: 100%;
+          background-color: #00803e;
+          font-size: 20px;
+          border-radius: 0.2em;
+        }
+        grid-area: outboundLabel;
+      }
+      #outboundWeight {
+        @include centerIt();
+        grid-area: outboundWeight;
+      }
+      #outboundUnit {
+        @include centerIt();
+        grid-area: outboundUnit;
+      }
+      #netLabel {
+        @include centerIt();
+        h5 {
+          width: 100%;
+          background-color: #00803e;
+          color: white;
+        }
+        grid-area: netLabel;
+      }
+      #netWeight {
+        @include centerIt();
+        grid-area: netWeight;
+      }
+      #netUnit {
+        @include centerIt();
+        grid-area: netUnit;
+      }
+      #totaline {
+        border: 1px solid rgba(128, 128, 128, 0.507);
+        border-radius: 100%;
+        grid-area: totaline;
+        width: 100%;
+      }
+      // #endregion
+
+      .digital {
+        font-size: 2.6em;
+        font-family: "Georgia";
+      }
+
+      .digital__7 {
+        font-size: 4em;
+        font-family: "digital-7";
+        color: black;
+        padding: 0 0.5rem;
+      }
+      #textarea {
+        margin: 1rem 0;
+      }
+    }
+    .remarks {
+      padding: 1rem;
+      margin: 0 1rem 1rem 0;
+      height: 25%;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.25rem;
+      border-color: rgba(212, 210, 210, 0.486);
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    }
+    .transBtn {
+      display: flex;
+      margin: 1rem;
+      margin-top: auto;
+      align-self: flex-end;
+      .transBtn__cancel {
+        @include decentBtn();
+        background-color: var(--danger);
+        border-color: var(--danger);
+        -webkit-user-drag: none;
+        &:hover {
+          background-color: var(--hoverDanger);
+          border-color: var(--hoverDanger);
+        }
+        &:focus {
+          background-color: var(--hoverDanger);
+          border-color: var(--hoverDanger);
+          box-shadow: 0 0 0 0.2rem var(--transDanger) !important;
+        }
+        width: 10em;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      }
+      .transBtn__save {
+        @include decentBtn();
+        background-color: var(--success);
+        border-color: var(--success);
+        &:hover {
+          background-color: var(--hoverSuccess);
+          border-color: var(--hoverSuccess);
+        }
+        &:focus {
+          box-shadow: 0 0 0 0.2rem var(--transSuccess) !important;
+          background-color: var(--hoverSuccess);
+          border-color: var(--hoverSuccess);
+        }
+        width: 10em;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1690px) {
+    .transaction__scale {
+      .weight {
+        grid-template-columns: 2fr 0.125 0.125;
+        grid-template-rows: 0.125fr 1fr 1fr 1fr 1fr 0.125fr 1fr 1fr;
+        grid-template-areas:
+          "weightTitle weightTitle weightTitle weightTitle"
+          "inboundLabel inboundLabel inboundLabel inboundLabel"
+          "inboundWeight inboundWeight inboundUnit inboundLock"
+          "outboundLabel outboundLabel outboundLabel outboundLabel"
+          "outboundWeight outboundWeight outboundUnit outboundLock"
+          "totaline totaline totaline totaline"
+          "netLabel netLabel netLabel netLabel"
+          "netWeight netWeight netUnit netUnit";
+        #inboundWeight,
+        #outboundWeight,
+        #netWeight,
+        #netUnit {
+          align-items: flex-start;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1390px) {
+  .transaction {
+    display: flex;
+    flex-direction: column;
+    .transaction__details {
+      margin: 0;
+      width: 100%;
+      border: none;
+      box-shadow: none;
+    }
+    .transaction__scale {
+      width: 100%;
+      margin: 0;
+
+      .weight {
+        margin: 0;
+        box-shadow: none;
+        border: none;
+        grid-template-columns: 2fr 0.125 0.125;
+        grid-template-rows: 0.125fr 1fr 1fr 1fr 1fr 0.125fr 1fr 1fr;
+        grid-template-areas:
+          "weightTitle weightTitle weightTitle weightTitle"
+          "inboundLabel inboundLabel inboundLabel inboundLabel"
+          "inboundWeight inboundWeight inboundUnit inboundLock"
+          "outboundLabel outboundLabel outboundLabel outboundLabel"
+          "outboundWeight outboundWeight outboundUnit outboundLock"
+          "totaline totaline totaline totaline"
+          "netLabel netLabel netLabel netLabel"
+          "netWeight netWeight netUnit netUnit";
+        #inboundWeight,
+        #outboundWeight,
+        #netWeight,
+        #netUnit {
+          align-items: flex-start;
+          margin-left: 1rem;
+        }
+      }
+      .remarks {
+        margin: 0;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .weight {
+    grid-template-columns: 2fr 0.125 0.125;
+    grid-template-rows: 0.125fr 1fr 1fr 1fr 1fr 0.125fr 1fr 1fr;
+    grid-template-areas:
+      "weightTitle weightTitle weightTitle weightTitle"
+      "inboundLabel inboundLabel inboundLabel inboundLabel"
+      "inboundWeight inboundWeight inboundUnit inboundLock"
+      "outboundLabel outboundLabel outboundLabel outboundLabel"
+      "outboundWeight outboundWeight outboundUnit outboundLock"
+      "totaline totaline totaline totaline"
+      "netLabel netLabel netLabel netLabel"
+      "netWeight netWeight netUnit netUnit";
+    #inboundWeight,
+    #outboundWeight,
+    #netWeight,
+    #netUnit {
+      align-items: flex-start;
+      margin-left: 1rem;
+    }
+    .item {
+      margin: none;
+    }
+    .digital {
+      font-size: 1.6em !important;
+    }
+    .digital__7 {
+      font-size: 2em !important;
+    }
+  }
+  .transBtn {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem !important;
+    margin: 0 !important;
+    .transBtn__cancel {
+      width: 50% !important;
+    }
+    .transBtn__save {
+      width: 50% !important;
+    }
+  }
+}

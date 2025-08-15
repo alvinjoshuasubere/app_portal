@@ -1,0 +1,19 @@
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  height: 2rem !important;
+  width: 30%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 675px) {
+  .searchbar {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .searchbar {
+    width: auto;
+  }
+}

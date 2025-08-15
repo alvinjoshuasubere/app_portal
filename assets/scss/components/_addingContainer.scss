@@ -1,0 +1,38 @@
+.addingContainer {
+  margin: 1rem 1rem 1rem 0;
+  width: 40%;
+  float: right;
+  height: auto;
+  // min-width: 350px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  border-color: rgba(212, 210, 210, 0.486);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 1rem;
+  min-width: 180px;
+}
+
+.tabContent__addingContainer{
+  margin: 1rem 0;
+  width: 40%;
+  float: right;
+  height: auto;
+  // min-width: 350px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  border-color: rgba(212, 210, 210, 0.486);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 1rem;
+  min-width: 180px;
+}
+
+@media screen and (max-width: 1070px) {
+  .addingContainer {
+    width: auto;
+    margin: 0 1rem 1rem 1rem;
+  }
+}

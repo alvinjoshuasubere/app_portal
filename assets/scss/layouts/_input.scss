@@ -1,0 +1,84 @@
+.input-group-sm > .form-control,
+.input-group-sm > .custom-select,
+.input-group-sm > .input-group-prepend > .input-group-text,
+.input-group-sm > .input-group-append > .input-group-text,
+.input-group-sm > .input-group-prepend > .btn,
+.input-group-sm > .input-group-append > .btn {
+  /* font-size: 0.875rem; */
+  font-size: 13px;
+  height: 2rem;
+}
+
+// .form-control.form-control-md, .custom-select.custom-select-md{
+//   height: 29.5px;
+// }
+
+.custom-select.custom-select-md {
+  padding-block: 0;
+}
+.custom-select {
+  font-size: 13px;
+  // border: none;
+  // border-bottom: 2px solid black;
+}
+
+.form-control {
+  font-size: 13px;
+  // border: none;
+  // border-bottom: 2px solid black;
+}
+
+.form-control:focus {
+  border-color: #024288;
+  box-shadow: none;
+}
+.form-control:disabled {
+  background-color: #e2eaf6;
+  box-shadow: none;
+}
+
+.right {
+  position: absolute;
+  right: 20px;
+}
+
+.ranges.col-12.col-md-auto {
+  margin: 0 !important;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 1rem;
+  ul {
+    text-align: center;
+  }
+  li {
+    font-size: 0.8rem !important;
+    padding-inline: 1rem;
+    width: auto !important;
+    &:hover {
+      background: none;
+      color: red;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+  }
+  li.active {
+    background: none;
+    color: red;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+}
+
+.daterangepicker .calendar-table table {
+  table-layout: fixed;
+  thead {
+    color: #051937;
+  }
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background: #051937 !important;
+  font-weight: bold;
+  color: #fff !important;
+}

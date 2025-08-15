@@ -1,0 +1,48 @@
+.xspacer {
+  margin: 0 0.3rem;
+}
+.rspacer {
+  margin-right: 0.6rem;
+}
+.rspacer-2 {
+  margin-right: 1.2rem;
+}
+.lspacer {
+  margin-left: 0.6rem;
+}
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-outline {
+  &:focus {
+    box-shadow: none !important;
+    border: 1px solid #cccccc !important;
+  }
+}
+
+#preview-carousel .carousel-control-prev-icon,
+#preview-carousel .carousel-control-next-icon {
+  filter: invert(32%) sepia(64%) saturate(600%) hue-rotate(200deg)
+    brightness(90%) contrast(90%);
+}
+
+#preview-carousel .carousel-control-prev,
+#preview-carousel .carousel-control-next {
+  opacity: 1;
+}
+
+#preview-carousel .carousel-control-prev:hover,
+#preview-carousel .carousel-control-next:hover {
+  color: #fbc764;
+}
