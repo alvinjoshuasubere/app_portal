@@ -13,8 +13,8 @@
     </header>
 
     <main>
-      <section class="welcome">
-        <h2 class="titleHeaderName">Koronadal City Portal</h2>
+      <section class="welcome mb-3">
+        <h2 class="titleHeaderName">ICTD System Portal</h2>
         <p>
           Here you can access the links of all the system that are being used by
           the City Government of Koronadal.
@@ -349,7 +349,7 @@ main {
 
 .viewIcon {
   font-size: 1.5rem;
-  color: #c00000;
+  color: #8b0000;
   margin-left: 10px;
 }
 </style>
