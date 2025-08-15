@@ -1,87 +1,93 @@
 <template>
   <body>
     <!-- HEADER -->
-    <header class="portal-header">
-      <div class="logo-container">
-        <img src="city_logo.png" alt="Portal Logo" class="logo" />
-        <img src="ict_logo.png" alt="ICT Logo" class="ict-logo" />
-        <div class="site-info">
-          <h1>Koronadal City Portal</h1>
-          <p>Your gateway to everything you need</p>
+    <div class="page-container">
+      <header class="portal-header">
+        <div class="logo-container">
+          <img src="city_logo.png" alt="Portal Logo" class="logo" />
+          <img src="ict_logo.png" alt="ICT Logo" class="ict-logo" />
+          <div class="site-info">
+            <h1>Koronadal City Portal</h1>
+            <p>Your gateway to everything you need</p>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main>
-      <section class="welcome mb-3">
-        <h2 class="titleHeaderName">ICTD System Portal</h2>
-        <p>
-          Here you can access the links of all the system that are being used by
-          the City Government of Koronadal.
-        </p>
-      </section>
-      <hr />
-      <section class="systems-container">
-        <div class="systems">
-          <h6 class="text-center titleName mb-4">
-            Web based Applications <br />
-            <small style="font-size: 0.8rem; color: #555"
-              >is a program you access through a web browser over the internet.
-              You don’t need to install anything — you just visit a URL.
-            </small>
-          </h6>
-          <a
-            v-for="(system, index) in systems"
-            :key="index"
-            :href="system.link"
-            target="_blank"
-            rel="noopener"
-            class="system-card"
-          >
-            <img :src="system.logo" :alt="system.name" class="system-logo" />
-            <div class="system-info">
-              <h3 class="appName">{{ system.name }}</h3>
-              <p class="subName text-left">{{ system.description }}</p>
-            </div>
-            <font-awesome-icon
-              icon="circle-arrow-right"
-              class="viewIcon"
-              small
-            />
-          </a>
-        </div>
-
-        <div class="systems">
-          <h6 class="text-center titleName mb-4">
-            Desktop Applications <br />
-            <small style="font-size: 0.8rem; color: #555"
-              >is a program installed directly on a computer and runs without
-              using a browser.</small
+      <main>
+        <section class="welcome mb-3">
+          <h2 class="titleHeaderName">ICTD System Portal</h2>
+          <p>
+            Here you can access the links of all the system that are being used
+            by the City Government of Koronadal.
+          </p>
+        </section>
+        <hr />
+        <section class="systems-container">
+          <div class="systems">
+            <h6 class="text-center titleName mb-4">
+              Web based Applications <br />
+              <small style="font-size: 0.8rem; color: #555"
+                >is a program you access through a web browser over the
+                internet. You don’t need to install anything — you just visit a
+                URL.
+              </small>
+            </h6>
+            <a
+              v-for="(system, index) in systems"
+              :key="index"
+              :href="system.link"
+              target="_blank"
+              rel="noopener"
+              class="system-card"
             >
-          </h6>
+              <img :src="system.logo" :alt="system.name" class="system-logo" />
+              <div class="system-info">
+                <h3 class="appName">{{ system.name }}</h3>
+                <p class="subName text-left">{{ system.description }}</p>
+              </div>
+              <font-awesome-icon
+                icon="circle-arrow-right"
+                class="viewIcon"
+                small
+              />
+            </a>
+          </div>
 
-          <a
-            v-for="(system, index) in desktop"
-            :key="index"
-            :href="system.link"
-            target="_blank"
-            rel="noopener"
-            class="desktop-card"
-          >
-            <img :src="system.logo" :alt="system.name" class="system-logo" />
-            <div class="system-info">
-              <h3 class="appName">{{ system.name }}</h3>
-              <p class="subName text-left">{{ system.description }}</p>
-            </div>
-            <!-- <font-awesome-icon
+          <div class="systems">
+            <h6 class="text-center titleName mb-4">
+              Desktop Applications <br />
+              <small style="font-size: 0.8rem; color: #555"
+                >is a program installed directly on a computer and runs without
+                using a browser.</small
+              >
+            </h6>
+
+            <a
+              v-for="(system, index) in desktop"
+              :key="index"
+              :href="system.link"
+              target="_blank"
+              rel="noopener"
+              class="desktop-card"
+            >
+              <img :src="system.logo" :alt="system.name" class="system-logo" />
+              <div class="system-info">
+                <h3 class="appName">{{ system.name }}</h3>
+                <p class="subName text-left">{{ system.description }}</p>
+              </div>
+              <!-- <font-awesome-icon
               icon="circle-arrow-right"
               class="viewIcon"
               small
             /> -->
-          </a>
-        </div>
-      </section>
-    </main>
+            </a>
+          </div>
+        </section>
+      </main>
+      <footer class="portal-footer">
+        <p>&copy; 2025 Information Communications and Technology Division.</p>
+      </footer>
+    </div>
   </body>
 </template>
 
@@ -148,7 +154,7 @@ export default {
         {
           name: "Document Tracking System",
           description:
-            "easily locate, update, and verify document status, ensuring accuracy, transparency, and accountability",
+            "System that enables real-time monitoring of document flow, location, status, and custodianship from creation to final disposition.",
           logo: "city_logo.png",
         },
         {
@@ -179,6 +185,11 @@ export default {
 
 <style scoped lang="scss">
 /* Reset & Basics */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -189,6 +200,15 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   color: #333;
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }
 
 .portal-header {
@@ -221,58 +241,6 @@ body {
 .site-info p {
   font-size: 0.9rem;
   opacity: 0.9;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ffd6d6;
-}
-
-/* Search Form */
-.search-form {
-  display: flex;
-}
-
-.search-form input {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px 0 0 4px;
-  outline: none;
-}
-
-.search-form button {
-  padding: 5px 10px;
-  background-color: white;
-  color: #c00000;
-  border: none;
-  cursor: pointer;
-  border-radius: 0 4px 4px 0;
-  font-weight: bold;
-}
-
-.search-form button:hover {
-  background-color: #ffd6d6;
 }
 
 /* Main Content */
@@ -356,5 +324,18 @@ main {
   font-size: 1.5rem;
   color: #8b0000;
   margin-left: 10px;
+}
+.portal-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  font-size: 0.8rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+  z-index: 1000;
 }
 </style>
