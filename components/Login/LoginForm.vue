@@ -161,6 +161,11 @@ export default {
           description: "Collection and remittance management for CEEDO.",
           logo: "city_logo.png",
         },
+        {
+          name: "Treasury Operations System",
+          description: "Collection and remittance management of the City.",
+          logo: "city_logo.png",
+        },
       ],
     };
   },
