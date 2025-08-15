@@ -220,13 +220,17 @@ h6 {
   margin-top: 10%;
   text-align: center;
 }
+.titleHeaderName {
+  font-size: 40px;
+  font-family: font_B;
+}
 .titleName {
-  font-size: 30px;
+  font-size: 20px;
+  color: black;
   font-family: font_B;
 }
 .appName {
   font-size: 20px;
-  color: var(--dark);
   font-family: font_B;
 }
 
@@ -240,7 +244,6 @@ h6 {
 .subName {
   margin-top: -10px;
   font-size: 13px;
-  color: var(--dark);
   font-family: font_R;
   text-align: center;
 }

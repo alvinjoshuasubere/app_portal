@@ -14,28 +14,72 @@
 
     <main>
       <section class="welcome">
-        <h2 class="titleName">Koronadal City Portal</h2>
+        <h2 class="titleHeaderName">Koronadal City Portal</h2>
         <p>
           Here you can access the links of all the system that are being used by
           the City Government of Koronadal.
         </p>
       </section>
-      <section class="systems">
-        <a
-          v-for="(system, index) in systems"
-          :key="index"
-          :href="system.link"
-          target="_blank"
-          rel="noopener"
-          class="system-card"
-        >
-          <img :src="system.logo" :alt="system.name" class="system-logo" />
-          <div class="system-info">
-            <h3 class="appName">{{ system.name }}</h3>
-            <p class="subName text-left">{{ system.description }}</p>
-          </div>
-          <font-awesome-icon icon="circle-arrow-right" class="viewIcon" small />
-        </a>
+      <hr />
+      <section class="systems-container">
+        <div class="systems">
+          <h6 class="text-center titleName mb-4">
+            Web based Applications <br />
+            <small style="font-size: 0.8rem; color: #555"
+              >is a program you access through a web browser over the internet.
+              You don’t need to install anything — you just visit a URL.
+            </small>
+          </h6>
+          <a
+            v-for="(system, index) in systems"
+            :key="index"
+            :href="system.link"
+            target="_blank"
+            rel="noopener"
+            class="system-card"
+          >
+            <img :src="system.logo" :alt="system.name" class="system-logo" />
+            <div class="system-info">
+              <h3 class="appName">{{ system.name }}</h3>
+              <p class="subName text-left">{{ system.description }}</p>
+            </div>
+            <font-awesome-icon
+              icon="circle-arrow-right"
+              class="viewIcon"
+              small
+            />
+          </a>
+        </div>
+
+        <div class="systems">
+          <h6 class="text-center titleName mb-4">
+            Desktop Applications <br />
+            <small style="font-size: 0.8rem; color: #555"
+              >is a program installed directly on a computer and runs without
+              using a browser.</small
+            >
+          </h6>
+
+          <a
+            v-for="(system, index) in desktop"
+            :key="index"
+            :href="system.link"
+            target="_blank"
+            rel="noopener"
+            class="desktop-card"
+          >
+            <img :src="system.logo" :alt="system.name" class="system-logo" />
+            <div class="system-info">
+              <h3 class="appName">{{ system.name }}</h3>
+              <p class="subName text-left">{{ system.description }}</p>
+            </div>
+            <!-- <font-awesome-icon
+              icon="circle-arrow-right"
+              class="viewIcon"
+              small
+            /> -->
+          </a>
+        </div>
       </section>
     </main>
   </body>
@@ -89,6 +133,35 @@ export default {
           link: "http://192.168.0.140:63/",
         },
       ],
+      desktop: [
+        {
+          name: "Property Assessment and Tax Administration System",
+          description:
+            "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
+          logo: "city_logo.png",
+        },
+        {
+          name: "Project Monitoring System",
+          description: "Manage Program and Project Monitoring.",
+          logo: "city_logo.png",
+        },
+        {
+          name: "Document Tracking System",
+          description:
+            "easily locate, update, and verify document status, ensuring accuracy, transparency, and accountability",
+          logo: "city_logo.png",
+        },
+        {
+          name: "BRGY. Treasury Operations System",
+          description: "Remmitance and collection management of barangays.",
+          logo: "city_logo.png",
+        },
+        {
+          name: "CEEDO Treasury Operations System",
+          description: "Collection and remittance management for CEEDO.",
+          logo: "city_logo.png",
+        },
+      ],
     };
   },
   beforeCreate() {},
@@ -113,9 +186,8 @@ body {
   color: #333;
 }
 
-/* Header Section */
 .portal-header {
-  background-color: #c00000; /* Deep Red */
+  background-color: #8b0000;
   color: white;
   padding: 10px 20px;
 }
@@ -209,14 +281,21 @@ main {
   text-align: center;
 }
 
-.systems {
+.systems-container {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
   margin-top: 20px;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 20px;
+}
+.desktopBg {
+  background: #0f4889;
+}
+
+.systems {
+  flex: 1;
+  min-width: 300px;
+  max-width: 800px;
 }
 
 .system-card {
@@ -230,6 +309,7 @@ main {
   text-decoration: none;
   color: inherit;
   transition: box-shadow 0.3s, transform 0.2s;
+  margin-bottom: 10px;
 }
 
 .system-card:hover {
@@ -238,8 +318,8 @@ main {
 }
 
 .system-logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   margin-right: 15px;
 }
@@ -248,14 +328,23 @@ main {
   flex: 1;
 }
 
-.appName {
-  margin-bottom: 5px;
-  color: #5f0202;
+.desktop-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e6b800;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  transition: box-shadow 0.3s, transform 0.2s;
+  margin-bottom: 10px;
 }
 
-.subName {
-  font-size: 0.9rem;
-  color: #555;
+.desktop-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .viewIcon {
