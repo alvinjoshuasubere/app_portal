@@ -75,7 +75,7 @@ module.exports = {
   },
 
   server: {
-    host: "192.168.0.109",
+    host: "192.168.0.101",
     port: 10,
   },
 };
