@@ -117,7 +117,7 @@ export default {
           name: "Motorized Tricycle Operators Permit System",
           description: "Electronic management of tricycle operators' permits.",
           logo: "city_logo.png",
-          link: "http://192.168.0.101:4000/",
+          link: "http://192.168.0.101:5000/",
         },
         {
           name: "Human Resource Management System",
