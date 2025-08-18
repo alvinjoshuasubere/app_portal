@@ -311,7 +311,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #e6b800;
+  background: linear-gradient(to right, #fff176, #fdd835, #fbc02d);
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px 15px;
