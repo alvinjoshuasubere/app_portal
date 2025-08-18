@@ -75,7 +75,7 @@ module.exports = {
   },
 
   server: {
-    host: "192.168.0.101",
-    port: 1000,
+    host: "0.0.0.0", // listen on all IPs
+    port: 1000, // keep your port
   },
 };
