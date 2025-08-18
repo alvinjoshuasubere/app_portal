@@ -27,9 +27,8 @@
             <h6 class="text-center titleName mb-4">
               Web based Applications <br />
               <small style="font-size: 0.8rem; color: #555"
-                >is a program you access through a web browser over the
-                internet. You don’t need to install anything — you just visit a
-                URL.
+                >is a program you access through a web browser. You don’t need
+                to install anything — you just visit a URL.
               </small>
             </h6>
             <a
