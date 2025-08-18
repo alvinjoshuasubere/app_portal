@@ -128,13 +128,13 @@ export default {
         {
           name: "Budget Management System",
           description: "Manage budget proposals and allocations.",
-          logo: "city_logo.png",
+          logo: "bos.png",
           link: "http://192.168.0.5:61/",
         },
         {
           name: "Supply Management System",
           description: "Monitor supply requests and create purchase orders.",
-          logo: "city_logo.png",
+          logo: "sms.png",
           link: "http://192.168.0.140:63/",
         },
       ],
@@ -143,7 +143,12 @@ export default {
           name: "Property Assessment and Tax Administration System",
           description:
             "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
-          logo: "city_logo.png",
+          logo: "patas.png",
+        },
+        {
+          name: "Business Permit and Licensing System",
+          description: "Business registration and licensing management.",
+          logo: "bpls.png",
         },
         {
           name: "Project Monitoring System",
@@ -154,7 +159,7 @@ export default {
           name: "Document Tracking System",
           description:
             "System that enables real-time monitoring of document flow, location, status, and custodianship from creation to final disposition.",
-          logo: "city_logo.png",
+          logo: "dtrax.png",
         },
         {
           name: "BRGY. Treasury Operations System",
