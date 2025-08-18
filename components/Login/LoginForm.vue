@@ -218,7 +218,8 @@ body {
 .portal-header {
   background-color: #8b0000;
   color: white;
-  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 2px 15px;
 }
 
 .logo-container {
@@ -247,9 +248,10 @@ body {
   opacity: 0.9;
 }
 
-/* Main Content */
 main {
   padding: 20px;
+  padding-bottom: 80px;
+  box-sizing: border-box;
 }
 
 .welcome {
