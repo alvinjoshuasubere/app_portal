@@ -116,13 +116,13 @@ export default {
         {
           name: "Motorized Tricycle Operators Permit System",
           description: "Electronic management of tricycle operators' permits.",
-          logo: "city_logo.png",
+          logo: "mtops.png",
           link: "http://192.168.0.101:5000/",
         },
         {
           name: "Human Resource Management System",
           description: "View payroll, attendance, and salary records.",
-          logo: "city_logo.png",
+          logo: "hrms.png",
           link: "http://192.168.0.5:60/",
         },
         {
@@ -153,7 +153,7 @@ export default {
         {
           name: "Project Monitoring System",
           description: "Manage Program and Project Monitoring.",
-          logo: "city_logo.png",
+          logo: "pms.png",
         },
         {
           name: "Document Tracking System",
