@@ -65,6 +65,7 @@
               v-for="(system, index) in desktop"
               :key="index"
               :href="system.link"
+              @click.prevent="openSystem(system.link)"
               class="desktop-card"
             >
               <img :src="system.logo" :alt="system.name" class="system-logo" />
@@ -137,12 +138,13 @@ export default {
           description:
             "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
           logo: "patas.png",
-          link: "patas://open",
+          link: "http://192.168.0.109:3001/open-patas",
         },
         {
           name: "Business Permit and Licensing System",
           description: "Business registration and licensing management.",
           logo: "bpls.png",
+          link: "http://192.168.0.109:3001/open-bpls",
         },
         {
           name: "Project Monitoring System",
@@ -154,6 +156,7 @@ export default {
           description:
             "System that enables real-time monitoring of document flow, location and status.",
           logo: "dtrax.png",
+          link: "http://192.168.0.109:3001/open-dtrax",
         },
         {
           name: "BRGY. Treasury Operations System",
@@ -177,7 +180,24 @@ export default {
 
   created() {},
   computed: {},
-  methods: {},
+  methods: {
+    openSystem(url) {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === "ok") {
+            console.log("✅ System launched successfully!");
+          } else {
+            console.warn("⚠️ Unexpected response:", data);
+            alert("⚠️ Failed to launch system.");
+          }
+        })
+        .catch((err) => {
+          console.error("❌ Cannot connect to helper service:", err);
+          alert("⚠️ Helper service not running. Please start it first.");
+        });
+    },
+  },
 };
 </script>
 
