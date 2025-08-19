@@ -64,8 +64,6 @@
             <a
               v-for="(system, index) in desktop"
               :key="index"
-              :href="system.link"
-              @click.prevent="openSystem(system.link)"
               class="desktop-card"
             >
               <img :src="system.logo" :alt="system.name" class="system-logo" />
