@@ -1,0 +1,13 @@
+[HKEY_CLASSES_ROOT\patas]
+@="URL:PATAS Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\patas\DefaultIcon]
+@="C:\\Program Files (x86)\\Geodata Solutions Incorporated\\PATASv4i\\PATASv4i.exe,1"
+
+[HKEY_CLASSES_ROOT\patas\shell]
+
+[HKEY_CLASSES_ROOT\patas\shell\open]
+
+[HKEY_CLASSES_ROOT\patas\shell\open\command]
+@="\"C:\\Program Files (x86)\\Geodata Solutions Incorporated\\PATASv4i\\PATASv4i.exe\" \"%1\""

@@ -55,18 +55,16 @@
           <div class="systems">
             <h6 class="text-center titleName mb-4">
               Desktop Applications <br />
-              <small style="font-size: 0.8rem; color: #555"
-                >is a program installed directly on a computer and runs without
-                using a browser.</small
-              >
+              <small style="font-size: 0.8rem; color: #555">
+                is a program installed directly on a computer and runs without
+                using a browser.
+              </small>
             </h6>
 
             <a
               v-for="(system, index) in desktop"
               :key="index"
               :href="system.link"
-              target="_blank"
-              rel="noopener"
               class="desktop-card"
             >
               <img :src="system.logo" :alt="system.name" class="system-logo" />
@@ -74,11 +72,6 @@
                 <h3 class="appName">{{ system.name }}</h3>
                 <p class="subName text-left">{{ system.description }}</p>
               </div>
-              <!-- <font-awesome-icon
-              icon="circle-arrow-right"
-              class="viewIcon"
-              small
-            /> -->
             </a>
           </div>
         </section>
@@ -144,6 +137,7 @@ export default {
           description:
             "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
           logo: "patas.png",
+          link: "patas://open",
         },
         {
           name: "Business Permit and Licensing System",
@@ -158,12 +152,12 @@ export default {
         {
           name: "Document Tracking System",
           description:
-            "System that enables real-time monitoring of document flow, location, status, and custodianship from creation to final disposition.",
+            "System that enables real-time monitoring of document flow, location and status.",
           logo: "dtrax.png",
         },
         {
           name: "BRGY. Treasury Operations System",
-          description: "Remmitance and collection management of barangays.",
+          description: "Remittance and collection management of barangays.",
           logo: "city_logo.png",
         },
         {
