@@ -265,7 +265,7 @@ body {
   border-radius: 8px;
 }
 .ict-logo {
-  width: 50px;
+  width: 70px;
   height: auto;
   border-radius: 8px;
 }
