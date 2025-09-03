@@ -5,26 +5,27 @@
       <header class="portal-header">
         <div class="logo-container">
           <img src="city_logo.png" alt="Portal Logo" class="logo" />
-          <img src="ict_logo.png" alt="ICT Logo" class="ict-logo" />
+
           <div class="site-info">
             <h1>Koronadal City Portal</h1>
-            <p>Your gateway to everything you need</p>
+            <p>Your gateway to city digital or online services</p>
           </div>
+          <img src="ict_logo.png" alt="ICT Logo" class="ict-logo" />
         </div>
       </header>
 
       <main>
-        <section class="welcome mb-3">
+        <!-- <section class="welcome mb-3">
           <h2 class="titleHeaderName">ICTD System Portal</h2>
           <p>
             Here you can access the links of all the system that are being used
             by the City Government of Koronadal.
           </p>
         </section>
-        <hr />
+        <hr /> -->
         <section class="systems-container">
           <div class="systems">
-            <h6 class="text-center titleName mb-4">
+            <h6 class="text-left titleName mb-4">
               Web based Applications <br />
               <small style="font-size: 0.8rem; color: #555"
                 >is a program you access through a web browser. You don’t need
@@ -53,7 +54,7 @@
           </div>
 
           <div class="systems">
-            <h6 class="text-center titleName mb-4">
+            <h6 class="text-left titleName mb-4">
               Desktop Applications <br />
               <small style="font-size: 0.8rem; color: #555">
                 is a program installed directly on a computer and runs without
@@ -159,17 +160,22 @@ export default {
         {
           name: "BRGY. Treasury Operations System",
           description: "Remittance and collection management of barangays.",
-          logo: "city_logo.png",
+          logo: "BTOS.png",
         },
         {
           name: "CEEDO Treasury Operations System",
           description: "Collection and remittance management for CEEDO.",
-          logo: "city_logo.png",
+          logo: "TOS.png",
         },
         {
           name: "Treasury Operations System",
           description: "Collection and remittance management of the City.",
-          logo: "city_logo.png",
+          logo: "TOS.png",
+        },
+        {
+          name: "Building Permit Application System",
+          description: "Building permit assessment and management.",
+          logo: "bpas.png",
         },
       ],
     };
@@ -205,6 +211,14 @@ html,
 body {
   height: 100%;
   margin: 0;
+  background: #f5f7fa;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    #dcdcdc 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 * {
   margin: 0;
@@ -231,7 +245,12 @@ body {
   background-color: #8b0000;
   color: white;
   border-bottom: 1px solid #ddd;
-  padding: 2px 15px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
 }
 
 .logo-container {
@@ -246,8 +265,8 @@ body {
   border-radius: 8px;
 }
 .ict-logo {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: auto;
   border-radius: 8px;
 }
 
@@ -294,18 +313,21 @@ main {
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px 15px;
+  border: #ddd;
+  border-radius: 12px;
+  padding: 16px 20px;
   text-decoration: none;
-  color: inherit;
-  transition: box-shadow 0.3s, transform 0.2s;
-  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .system-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  background-color: #f5f7fa;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
 }
 
 .system-logo {
@@ -323,25 +345,34 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to right, #fff176, #fdd835, #fbc02d);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px 15px;
+  background: linear-gradient(135deg, #fffde7, #fff59d, #fdd835);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 20px;
   text-decoration: none;
-  color: black;
-  transition: box-shadow 0.3s, transform 0.2s;
-  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .desktop-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #fff59d, #fdd835, #fbc02d);
 }
 
 .viewIcon {
-  font-size: 1.5rem;
-  color: #8b0000;
+  font-size: 1.4rem;
+  -webkit-text-fill-color: transparent;
   margin-left: 10px;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.viewIcon:hover {
+  transform: scale(1.2);
+  opacity: 0.85;
 }
 .portal-footer {
   position: fixed;
