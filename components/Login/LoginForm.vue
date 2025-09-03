@@ -8,7 +8,7 @@
 
           <div class="site-info">
             <h1>KORONADAL CITY PORTAL</h1>
-            <p>Your gateway to city digital or online services</p>
+            <p>Your gateway to city digital online services</p>
           </div>
           <img src="ict_logo.png" alt="ICT Logo" class="ict-logo" />
         </div>
