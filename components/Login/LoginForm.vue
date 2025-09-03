@@ -7,7 +7,7 @@
           <img src="city_logo.png" alt="Portal Logo" class="logo" />
 
           <div class="site-info">
-            <h1>Koronadal City Portal</h1>
+            <h1>KORONADAL CITY PORTAL</h1>
             <p>Your gateway to city digital or online services</p>
           </div>
           <img src="ict_logo.png" alt="ICT Logo" class="ict-logo" />
@@ -272,6 +272,7 @@ body {
 
 .site-info h1 {
   font-size: 1.5rem;
+  font-family: font_B;
 }
 
 .site-info p {
