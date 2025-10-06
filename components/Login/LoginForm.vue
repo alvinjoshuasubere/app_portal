@@ -104,7 +104,7 @@ export default {
           name: "Real-Time DTR Tracking System",
           description: "Track daily time records in real-time.",
           logo: "city_logo.png",
-          link: "http://192.168.0.101:4000/",
+          link: "http://192.168.0.108:4000/",
         },
         {
           name: "Motorized Tricycle Operators Permit System",
