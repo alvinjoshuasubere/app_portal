@@ -35,10 +35,11 @@
             <a
               v-for="(system, index) in systems"
               :key="index"
-              :href="system.link"
+              :href="system.isOnline ? system.link : null"
               target="_blank"
               rel="noopener"
               class="system-card"
+              :class="{ offline: !system.isOnline }"
             >
               <img :src="system.logo" :alt="system.name" class="system-logo" />
               <div class="system-info">
@@ -99,36 +100,42 @@ export default {
           description: "Request ICT services and report issues.",
           logo: "ict_logo.png",
           link: "http://192.168.0.101:3000/",
+          isOnline: false,
         },
         {
           name: "Real-Time DTR Tracking System",
           description: "Track daily time records in real-time.",
           logo: "city_logo.png",
           link: "http://192.168.0.108:4000/",
+          isOnline: false,
         },
         {
           name: "Motorized Tricycle Operators Permit System",
           description: "Electronic management of tricycle operators' permits.",
           logo: "mtops.png",
           link: "http://192.168.0.108:5000/",
+          isOnline: false,
         },
         {
           name: "Human Resource Management System",
           description: "View payroll, attendance, and salary records.",
           logo: "hrms.png",
           link: "http://192.168.0.5:60/",
+          isOnline: false,
         },
         {
           name: "Budget Management System",
           description: "Manage budget proposals and allocations.",
           logo: "bos.png",
           link: "http://192.168.0.5:61/",
+          isOnline: false,
         },
         {
           name: "Supply Management System",
           description: "Monitor supply requests and create purchase orders.",
           logo: "sms.png",
           link: "http://192.168.0.140:63/",
+          isOnline: false,
         },
       ],
       desktop: [
@@ -137,13 +144,11 @@ export default {
           description:
             "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
           logo: "patas.png",
-          link: "http://192.168.0.109:3001/open-patas",
         },
         {
           name: "Business Permit and Licensing System",
           description: "Business registration and licensing management.",
           logo: "bpls.png",
-          link: "http://192.168.0.109:3001/open-bpls",
         },
         {
           name: "Project Monitoring System",
@@ -155,7 +160,6 @@ export default {
           description:
             "System that enables real-time monitoring of document flow, location and status.",
           logo: "dtrax.png",
-          link: "http://192.168.0.109:3001/open-dtrax",
         },
         {
           name: "BRGY. Treasury Operations System",
@@ -181,7 +185,10 @@ export default {
     };
   },
   beforeCreate() {},
-
+  mounted() {
+    this.checkSystemsStatus();
+    setInterval(this.checkSystemsStatus, 10000);
+  },
   created() {},
   computed: {},
   methods: {
@@ -200,6 +207,16 @@ export default {
           console.error("❌ Cannot connect to helper service:", err);
           alert("⚠️ Helper service not running. Please start it first.");
         });
+    },
+    async checkSystemsStatus() {
+      for (let system of this.systems) {
+        try {
+          await fetch(system.link, { method: "GET", mode: "no-cors" });
+          system.isOnline = true;
+        } catch (e) {
+          system.isOnline = false;
+        }
+      }
     },
   },
 };
@@ -387,5 +404,35 @@ main {
   color: #555;
   border-top: 1px solid #ddd;
   z-index: 1000;
+}
+.system-card.offline {
+  pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  position: relative;
+}
+
+.system-card.offline {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+.system-card.offline::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 8px;
+  width: 100px;
+  height: 45px;
+  background-image: url("../../static/warning.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  z-index: 999;
 }
 </style>
