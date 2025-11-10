@@ -187,7 +187,7 @@ export default {
   beforeCreate() {},
   mounted() {
     this.checkSystemsStatus();
-    setInterval(this.checkSystemsStatus, 10000);
+    setInterval(this.checkSystemsStatus, 5000);
   },
   created() {},
   computed: {},
