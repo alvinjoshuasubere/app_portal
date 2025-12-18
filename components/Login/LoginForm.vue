@@ -170,7 +170,7 @@ export default {
           title: "E-Governance Code Approved by SP",
           excerpt: "Sangguniang Panlungsod approves comprehensive e-governance code to digitize city services.",
           category: "Legislation",
-          author: "City Council",
+          author: "SP Legislation",
          date: new Date('2026'),
           // image: "council.jpg",
           link: "#"
