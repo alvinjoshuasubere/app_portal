@@ -15,14 +15,6 @@
       </header>
 
       <main>
-        <!-- <section class="welcome mb-3">
-          <h2 class="titleHeaderName">ICTD System Portal</h2>
-          <p>
-            Here you can access the links of all the system that are being used
-            by the City Government of Koronadal.
-          </p>
-        </section>
-        <hr /> -->
         <section class="systems-container">
           <div class="systems">
             <h6 class="text-left titleName mb-4">
@@ -259,7 +251,7 @@ body {
 }
 
 .portal-header {
-  background-color: #8b0000;
+  background-color: #1e3a8b;
   color: white;
   border-bottom: 1px solid #ddd;
   padding: 10px 15px;
@@ -326,7 +318,7 @@ main {
   max-width: 800px;
 }
 
-.system-card {
+.desktop-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -342,7 +334,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.system-card:hover {
+.desktop-card:hover {
   background-color: #f5f7fa;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
   transform: translateY(-3px);
@@ -359,28 +351,33 @@ main {
   flex: 1;
 }
 
-.desktop-card {
+.system-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, #fffde7, #fff59d, #fdd835);
+  background: linear-gradient(135deg, #dae6ff, #85a3dd, #5784d6, #2f67d8);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+
   border: none;
   border-radius: 12px;
   padding: 16px 20px;
   text-decoration: none;
-  color: #333;
+
+  color: black;
   font-weight: 500;
-  transition: all 0.3s ease;
+
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   margin-bottom: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(47, 103, 216, 0.2);
 }
 
-.desktop-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-  background: linear-gradient(135deg, #fff59d, #fdd835, #fbc02d);
+.system-card:hover {
+  transform: translateY(-5px);
+  background-position: 100% 100%;
+  box-shadow: 0 8px 20px rgba(47, 103, 216, 0.35);
+  color: #ffffff;
 }
-
 .viewIcon {
   font-size: 1.4rem;
   -webkit-text-fill-color: transparent;
