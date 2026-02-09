@@ -147,59 +147,6 @@ async function start () {
     }
   })
 
-  // PUT to update an item in any category
-  app.put('/api/:category/:id', express.json(), (req, res) => {
-    try {
-      const { category, id } = req.params
-      const validCategories = ['systems', 'desktop', 'quickServices', 'latestNews']
-      
-      if (!validCategories.includes(category)) {
-        return res.status(400).json({ error: 'Invalid category' })
-      }
-      
-      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'))
-      const updatedItem = req.body
-      const itemIndex = data[category].findIndex(item => item.id === id)
-      
-      if (itemIndex === -1) {
-        return res.status(404).json({ error: 'Item not found' })
-      }
-      
-      data[category][itemIndex] = { ...data[category][itemIndex], ...updatedItem }
-      
-      fs.writeFileSync(dataPath, JSON.stringify(data, null, 2))
-      res.json({ success: true, item: data[category][itemIndex] })
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to update item' })
-    }
-  })
-
-  // DELETE to remove an item from any category
-  app.delete('/api/:category/:id', (req, res) => {
-    try {
-      const { category, id } = req.params
-      const validCategories = ['systems', 'desktop', 'quickServices', 'latestNews']
-      
-      if (!validCategories.includes(category)) {
-        return res.status(400).json({ error: 'Invalid category' })
-      }
-      
-      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'))
-      const itemIndex = data[category].findIndex(item => item.id === id)
-      
-      if (itemIndex === -1) {
-        return res.status(404).json({ error: 'Item not found' })
-      }
-      
-      const deletedItem = data[category].splice(itemIndex, 1)[0]
-      
-      fs.writeFileSync(dataPath, JSON.stringify(data, null, 2))
-      res.json({ success: true, item: deletedItem })
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to delete item' })
-    }
-  })
-
   // Middleware to parse JSON body when no file is uploaded
   const parseBody = (req, res, next) => {
     if (req.headers['content-type']?.includes('application/json')) {
