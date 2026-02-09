@@ -271,7 +271,6 @@ export default {
             excerpt: itemToAdd.description,
             image: itemToAdd.logo
           };
-          // Remove the old field names
           delete itemToAdd.name;
           delete itemToAdd.description;
           delete itemToAdd.logo;
