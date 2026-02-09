@@ -1,0 +1,171 @@
+{
+  "systems": [
+    {
+      "id": "ict-ticketing",
+      "name": "ICT Online Ticketing System",
+      "description": "Request ICT services and report issues.",
+      "logo": "ict_logo.png",
+      "link": "http://192.168.0.101:3000/",
+      "isOnline": false
+    },
+    {
+      "id": "dtr-tracking",
+      "name": "Real-Time DTR Tracking System",
+      "description": "Track daily time records in real-time.",
+      "logo": "city_logo.png",
+      "link": "http://192.168.0.108:4000/",
+      "isOnline": false
+    },
+    {
+      "id": "mtop-system",
+      "name": "Motorized Tricycle Operators Permit System",
+      "description": "Electronic management of tricycle operators' permits.",
+      "logo": "mtops.png",
+      "link": "http://192.168.0.108:5000/",
+      "isOnline": false
+    },
+    {
+      "id": "hrms",
+      "name": "Human Resource Management System",
+      "description": "View payroll, attendance, and salary records.",
+      "logo": "hrms.png",
+      "link": "http://192.168.0.5:60/",
+      "isOnline": false
+    },
+    {
+      "id": "budget-system",
+      "name": "Budget Management System",
+      "description": "Manage budget proposals and allocations.",
+      "logo": "bos.png",
+      "link": "http://192.168.0.5:61/",
+      "isOnline": false
+    },
+    {
+      "id": "supply-system",
+      "name": "Supply Management System",
+      "description": "Monitor supply requests and create purchase orders.",
+      "logo": "sms.png",
+      "link": "http://192.168.0.5:62/",
+      "isOnline": false
+    }
+  ],
+  "desktop": [
+    {
+      "id": "patas",
+      "name": "Property Assessment and Tax Administration System",
+      "description": "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
+      "logo": "patas.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "bpls",
+      "name": "Business Permit and Licensing System",
+      "description": "Business registration and licensing management.",
+      "logo": "bpls.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "pms",
+      "name": "Project Monitoring System",
+      "description": "Manage Program and Project Monitoring.",
+      "logo": "pms.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "dtrax",
+      "name": "Document Tracking System",
+      "description": "System that enables real-time monitoring of document flow, location and status.",
+      "logo": "dtrax.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "btos",
+      "name": "BRGY. Treasury Operations System",
+      "description": "Remittance and collection management of barangays.",
+      "logo": "BTOS.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "ceedo-tos",
+      "name": "CEEDO Treasury Operations System",
+      "description": "Collection and remittance management for CEEDO.",
+      "logo": "TOS.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "tos",
+      "name": "Treasury Operations System",
+      "description": "Collection and remittance management of the City.",
+      "logo": "TOS.png",
+      "link": "",
+      "isOnline": false
+    },
+    {
+      "id": "bpas",
+      "name": "Building Permit Application System",
+      "description": "Building permit assessment and management.",
+      "logo": "bpas.png",
+      "link": "",
+      "isOnline": false
+    }
+  ],
+  "quickServices": [
+    {
+      "id": "business-permit",
+      "name": "Business Permit",
+      "description": "Apply and renew business permits online",
+      "icon": "briefcase",
+      "link": "https://koronadalcityportal.com/v2/login",
+      "isOnline": true
+    },
+    {
+      "id": "mtop-violation",
+      "name": "MTOP Violation Tracker",
+      "description": "Check MTOP Violations",
+      "icon": "car",
+      "link": "https://violations.koronadalcityonlineservices.com/",
+      "isOnline": true
+    }
+  ],
+  "latestNews": [
+    {
+      "id": "network-rehab",
+      "title": "Network Rehabilitation Planned for 2026",
+      "excerpt": "Major infrastructure upgrade scheduled for 2026 to enhance city network connectivity and performance.",
+      "category": "Infrastructure",
+      "author": "ICT Division",
+      "date": "2026-01-01",
+      "image": "network_rehab.jpg",
+      "link": "#",
+      "isOnline": true
+    },
+    {
+      "id": "egovernance-code",
+      "title": "E-Governance Code Approved by SP",
+      "excerpt": "Sangguniang Panlungsod approves comprehensive e-governance code to digitize city services.",
+      "category": "Legislation",
+      "author": "SP Legislation",
+      "date": "2026-01-15",
+      "image": "egov.jpg",
+      "link": "#",
+      "isOnline": true
+    },
+    {
+      "id": "digital-systems",
+      "title": "New Digital Systems Launching in 2026",
+      "excerpt": "Advanced city management systems set to launch next year for improved public service delivery.",
+      "category": "Technology",
+      "author": "ICT Division",
+      "date": "2026-02-01",
+      "image": "systems.png",
+      "link": "#",
+      "isOnline": true
+    }
+  ]
+}

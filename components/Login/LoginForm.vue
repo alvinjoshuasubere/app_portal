@@ -2,6 +2,7 @@
   <body>
     <!-- HEADER -->
     <div class="page-container">
+      <Loading v-if="loading" style="z-index: 9999" />
       <header class="portal-header">
         <div class="logo-container">
           <img src="city_logo.png" alt="Portal Logo" class="logo" />
@@ -15,6 +16,25 @@
       </header>
 
       <main>
+        <!-- Loading State -->
+        <div v-if="loading" class="loading-container">
+          <div class="loading-spinner">
+            <font-awesome-icon icon="spinner" spin />
+            <p>Loading portal data...</p>
+          </div>
+        </div>
+        
+        <!-- Error State -->
+        <div v-else-if="error" class="error-container">
+          <div class="error-message">
+            <font-awesome-icon icon="exclamation-triangle" />
+            <p>{{ error }}</p>
+            <button @click="loadPortalData" class="retry-btn">Retry</button>
+          </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div v-else>
         <!-- Hero Section -->
         <section class="hero-section">
           <div class="hero-container">
@@ -137,6 +157,7 @@
             </div>
           </div>
         </section>
+        </div>
       </main>
       <footer class="portal-footer">
         <p>&copy; 2025 Information Communications and Technology Division.</p>
@@ -146,7 +167,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Loading from "@/components/LoadingOverlay/Loadings";
 
 export default {
@@ -155,148 +175,48 @@ export default {
   },
   data() {
     return {
-      latestNews: [
-      
-        {
-          title: "Network Rehabilitation Planned for 2026",
-          excerpt: "Major infrastructure upgrade scheduled for 2026 to enhance city network connectivity and performance.",
-          category: "Infrastructure",
-          author: "ICT Division",
-          date: new Date('2026'),
-          // image: "network.jpg",
-          link: "#"
-        },
-        {
-          title: "E-Governance Code Approved by SP",
-          excerpt: "Sangguniang Panlungsod approves comprehensive e-governance code to digitize city services.",
-          category: "Legislation",
-          author: "SP Legislation",
-         date: new Date('2026'),
-          // image: "council.jpg",
-          link: "#"
-        },
-        {
-          title: "New Digital Systems Launching in 2026",
-          excerpt: "Advanced city management systems set to launch next year for improved public service delivery.",
-          category: "Technology",
-          author: "ICT Division",
-          date: new Date('2026'),
-          // image: "technology.jpg",
-          link: "#"
-        },
-      ],
-      quickServices: [
-        {
-          name: "Business Permit",
-          description: "Apply and renew business permits online",
-          icon: "briefcase",
-          link: "https://koronadalcityportal.com/v2/login"
-        },
-        {
-          name: "MTOP Violation Tracker",
-          description: "Check MTOP Violations",
-          icon: "car",
-          link: "https://violations.koronadalcityonlineservices.com/"
-        },
-      ],
-      systems: [
-        {
-          name: "ICT Online Ticketing System",
-          description: "Request ICT services and report issues.",
-          logo: "ict_logo.png",
-          link: "http://192.168.0.101:3000/",
-          isOnline: false,
-        },
-        {
-          name: "Real-Time DTR Tracking System",
-          description: "Track daily time records in real-time.",
-          logo: "city_logo.png",
-          link: "http://192.168.0.108:4000/",
-          isOnline: false,
-        },
-        {
-          name: "Motorized Tricycle Operators Permit System",
-          description: "Electronic management of tricycle operators' permits.",
-          logo: "mtops.png",
-          link: "http://192.168.0.108:5000/",
-          isOnline: false,
-        },
-        {
-          name: "Human Resource Management System",
-          description: "View payroll, attendance, and salary records.",
-          logo: "hrms.png",
-          link: "http://192.168.0.5:60/",
-          isOnline: false,
-        },
-        {
-          name: "Budget Management System",
-          description: "Manage budget proposals and allocations.",
-          logo: "bos.png",
-          link: "http://192.168.0.5:61/",
-          isOnline: false,
-        },
-        {
-          name: "Supply Management System",
-          description: "Monitor supply requests and create purchase orders.",
-          logo: "sms.png",
-          link: "http://192.168.0.140:63/",
-          isOnline: false,
-        },
-      ],
-      desktop: [
-        {
-          name: "Property Assessment and Tax Administration System",
-          description:
-            "Application for the inventory, valuation, assessment, collection and reporting of property taxes.",
-          logo: "patas.png",
-        },
-        {
-          name: "Business Permit and Licensing System",
-          description: "Business registration and licensing management.",
-          logo: "bpls.png",
-        },
-        {
-          name: "Project Monitoring System",
-          description: "Manage Program and Project Monitoring.",
-          logo: "pms.png",
-        },
-        {
-          name: "Document Tracking System",
-          description:
-            "System that enables real-time monitoring of document flow, location and status.",
-          logo: "dtrax.png",
-        },
-        {
-          name: "BRGY. Treasury Operations System",
-          description: "Remittance and collection management of barangays.",
-          logo: "BTOS.png",
-        },
-        {
-          name: "CEEDO Treasury Operations System",
-          description: "Collection and remittance management for CEEDO.",
-          logo: "TOS.png",
-        },
-        {
-          name: "Treasury Operations System",
-          description: "Collection and remittance management of the City.",
-          logo: "TOS.png",
-        },
-        {
-          name: "Building Permit Application System",
-          description: "Building permit assessment and management.",
-          logo: "bpas.png",
-        },
-      ],
+      latestNews: [],
+      quickServices: [],
+      systems: [],
+      desktop: [],
+      loading: false,
+      error: null
     };
   },
   beforeCreate() {},
   mounted() {
+    this.loadPortalData();
     this.checkSystemsStatus();
     setInterval(this.checkSystemsStatus, 5000);
   },
   created() {},
   computed: {},
   methods: {
+    async loadPortalData() {
+      try {
+        this.loading = true;
+        
+        const response = await fetch('/portal-data.json');
+        const data = await response.json();
+        
+        this.systems = data.systems || [];
+        this.desktop = data.desktop || [];
+        this.quickServices = data.quickServices || [];
+        this.latestNews = data.latestNews || [];
+        
+        // Convert date strings to Date objects for news
+        this.latestNews = this.latestNews.map(news => ({
+          ...news,
+          date: new Date(news.date)
+        }));
+        
+        this.loading = false;
+      } catch (error) {
+        console.error('Failed to load portal data:', error);
+        this.error = 'Failed to load portal data';
+        this.loading = false;
+      }
+    },
     formatDate(date) {
       return date.toLocaleDateString('en-US', { 
         year: 'numeric', 
@@ -890,5 +810,53 @@ main {
   background-position: center;
   opacity: 1;
   z-index: 999;
+}
+
+/* Loading and Error States */
+.loading-container, .error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: white;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loading-spinner, .error-message {
+  text-align: center;
+  color: #1e3a8b;
+}
+
+.loading-spinner svg, .error-message svg {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #1e3a8b;
+}
+
+.loading-spinner p, .error-message p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.retry-btn {
+  background: #1e3a8b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #2563eb;
+}
+
+.error-message svg {
+  color: #dc2626;
 }
 </style>
