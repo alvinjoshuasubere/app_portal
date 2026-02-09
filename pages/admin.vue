@@ -198,6 +198,8 @@ export default {
       isEditing: false,
       editItemId: null,
       selectedFile: null,
+      // API base URL - change this to match your server
+      apiBaseUrl: 'http://0.0.0.0:1000',
       newItem: {
         name: '',
         description: '',
@@ -229,7 +231,7 @@ export default {
   methods: {
     async loadItems() {
       try {
-        const response = await fetch('/portal-data.json');
+        const response = await fetch(`${this.apiBaseUrl}/portal-data.json`);
         const data = await response.json();
         this.currentItems = data[this.activeCategory] || [];
       } catch (error) {
@@ -290,11 +292,11 @@ export default {
         
         if (this.isEditing) {
           // Update existing item
-          url = `/api/update-item/${this.activeCategory}/${this.editItemId}`;
+          url = `${this.apiBaseUrl}/api/update-item/${this.activeCategory}/${this.editItemId}`;
           method = 'PUT';
         } else {
           // Add new item
-          url = `/api/add-item/${this.activeCategory}`;
+          url = `${this.apiBaseUrl}/api/add-item/${this.activeCategory}`;
           method = 'POST';
         }
         
@@ -387,7 +389,7 @@ export default {
       
       try {
         // Send delete request to server
-        const response = await fetch(`/api/delete-item/${this.activeCategory}/${item.id}`, {
+        const response = await fetch(`${this.apiBaseUrl}/api/delete-item/${this.activeCategory}/${item.id}`, {
           method: 'DELETE'
         });
         
