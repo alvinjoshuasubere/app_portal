@@ -226,7 +226,7 @@ export default {
   mounted() {
     this.loadPortalData();
     this.checkSystemsStatus();
-    setInterval(this.checkSystemsStatus, 5000);
+    setInterval(this.checkSystemsStatus, 10000);
     
     // Start auto-play for news carousel
     this.startNewsAutoPlay();
