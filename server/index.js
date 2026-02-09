@@ -115,38 +115,6 @@ async function start () {
     }
   })
 
-  // POST to add new item to any category
-  app.post('/api/:category', express.json(), (req, res) => {
-    try {
-      const { category } = req.params
-      const validCategories = ['systems', 'desktop', 'quickServices', 'latestNews']
-      
-      if (!validCategories.includes(category)) {
-        return res.status(400).json({ error: 'Invalid category' })
-      }
-      
-      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'))
-      const newItem = req.body
-      
-      // Set default values
-      if (!newItem.isOnline) {
-        newItem.isOnline = false
-      }
-      
-      // Generate ID if not provided
-      if (!newItem.id) {
-        newItem.id = newItem.name.toLowerCase().replace(/[^a-z0-9]/g, '-')
-      }
-      
-      data[category].push(newItem)
-      
-      fs.writeFileSync(dataPath, JSON.stringify(data, null, 2))
-      res.json({ success: true, item: newItem })
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to add item' })
-    }
-  })
-
   // Middleware to parse JSON body when no file is uploaded
   const parseBody = (req, res, next) => {
     if (req.headers['content-type']?.includes('application/json')) {
