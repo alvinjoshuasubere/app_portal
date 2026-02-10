@@ -117,7 +117,15 @@
               <section class="news-section">
                 <div class="news-container">
                   <div class="news-header">
-                    <h2>Latest News & Announcements</h2>
+                    <div class="header-wrapper">
+                      <div class="header-icon">
+                        <font-awesome-icon icon="newspaper" />
+                      </div>
+                      <div class="header-text">
+                        <h2>Latest News & Announcements</h2>
+                        <p class="header-subtitle">Stay updated with the latest information</p>
+                      </div>
+                    </div>
                   </div>
                   <div 
                     class="news-carousel"
@@ -618,18 +626,31 @@ main {
   letter-spacing: 1px;
 }
 
+.news-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 /* News Carousel with Fade */
 .news-carousel {
   width: 100%;
   position: relative;
   overflow: hidden;
   border-radius: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-slides {
   position: relative;
   width: 100%;
-  min-height: 450px;
+  flex: 1;
+  min-height: 400px;
+  max-height: 500px;
+  position: relative;
+  z-index: 1;
 }
 
 .news-slide {
@@ -637,11 +658,14 @@ main {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(0.95);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-slide.active {
@@ -672,7 +696,8 @@ main {
 
 .news-slide .news-image {
   position: relative;
-  height: 220px;
+  height: 180px;
+  flex-shrink: 0;
   overflow: hidden;
   border-bottom: 3px solid #1e3a8b;
 }
@@ -704,13 +729,16 @@ main {
 }
 
 .news-slide .news-content {
-  padding: 24px;
+  padding: 16px;
   background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-slide .news-content h3 {
-  margin: 0 0 12px 0;
-  font-size: 1.3rem;
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
   color: #1e3a8b;
   line-height: 1.3;
   font-weight: 700;
@@ -719,9 +747,9 @@ main {
 
 .news-slide .news-excerpt {
   color: #475569;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
   font-weight: 500;
 }
 
@@ -729,9 +757,10 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 12px;
+  padding-top: 6px;
   border-top: 1px solid #e2e8f0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  margin-top: auto;
 }
 
 .news-slide .news-date {
@@ -753,8 +782,10 @@ main {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 12px;
+  padding: 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .carousel-btn {
@@ -811,36 +842,138 @@ main {
 
 /* News Section Styles */
 .news-section {
-  padding: 30px 20px;
-  background: linear-gradient(135deg, rgba(30, 58, 139, 0.95) 0%, rgba(55, 48, 163, 0.95) 50%, rgba(79, 70, 229, 0.95) 100%);
+  padding: 25px 20px;
+  background: linear-gradient(135deg, rgba(30, 58, 139, 0.98) 0%, rgba(55, 48, 163, 0.98) 50%, rgba(79, 70, 229, 0.98) 100%);
   border-radius: 20px;
   box-shadow: 
-    0 8px 32px rgba(31, 38, 135, 0.37),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+    0 15px 50px rgba(31, 38, 135, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 0 0 3px rgba(251, 191, 36, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.news-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.news-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: headerShimmer 3s ease-in-out infinite;
+}
+
+@keyframes headerShimmer {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+  50% { transform: rotate(180deg) scale(1.1); opacity: 0.6; }
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.header-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 6px 20px rgba(251, 191, 36, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  animation: iconShine 2s linear infinite;
+}
+
+@keyframes iconShine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.header-icon svg {
+  font-size: 1.4rem;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.header-text {
+  flex: 1;
 }
 
 .news-header h2 {
   font-size: 1.5rem;
   color: #ffffff;
-  margin: 0 0 20px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0 0 4px 0;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
-.view-all-btn {
-  background: #1e3a8b;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
+.header-subtitle {
+  color: rgba(255, 255, 255, 0.95);
   font-size: 0.9rem;
-  transition: background 0.3s ease;
-}
-
-.view-all-btn:hover {
-  background: #2563eb;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .news-grid {
@@ -853,7 +986,7 @@ main {
 .main-content-grid {
   display: flex;
   gap: 30px;
-  align-items: flex-start;
+  align-items: stretch;
   padding: 20px;
   max-width: 100%;
   margin: 0 auto;
@@ -866,11 +999,13 @@ main {
 }
 
 .right-column {
-  flex: 0 0 450px;
-  min-width: 450px;
-  max-width: 500px;
+  flex: 0 0 480px;
+  min-width: 480px;
+  max-width: 520px;
   position: sticky;
   top: 20px;
+  align-self: stretch;
+  display: flex;
 }
 
 /* Responsive: Stack columns on smaller screens */
@@ -1053,11 +1188,11 @@ main {
 .system-card.offline::before {
   content: "";
   position: absolute;
-  top: 20px;
-  right: 8px;
-  width: 100px;
-  height: 45px;
-  background-image: url("../../static/warning.jpg");
+  top: 1px;
+  right: 20px;
+  width: 120px;
+  height: 100px;
+  background-image: url("../../static/loading.gif");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
